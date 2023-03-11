@@ -14,7 +14,7 @@ El intro
 {{< hint info >}} 
 
 -Haga doble clic para generar conjunto de planos.
--Clic derecho sostenido y mover el ratón para cambiar vista.
+-Clic hizquierdo sostenido y mover el ratón para cambiar vista.
 
 
 {{< /hint >}}
