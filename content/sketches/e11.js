@@ -20,6 +20,8 @@ let sideViewAngle = 0;
 let slider1;
 let slider2;
 let checkbox;
+let checkbox2;
+let isStroke;
 
 function preload() {
   customFont = loadFont('https://cdnjs.cloudflare.com/ajax/libs/topcoat/0.8.0/font/SourceCodePro-Bold.otf');
@@ -68,9 +70,11 @@ function draw() {
     yoff += yoffVal; 
   }
 
-  //stroke(0, 255, 0);
-  
+
   noStroke();
+  if(isStroke){
+    stroke(0, 255, 0);
+  }
   rotateX(camAngle);
   rotateZ(sideViewAngle);
   
@@ -87,13 +91,15 @@ function draw() {
       if(z > waterLevel){
         fill(map(z, ml, mh, 0, 180), 
              map(z, ml, mh, 0, 255),
-             0);
-      } else {
-        fill(94, 138, 214);
+             255-20*y);
       }
       
+      //snow
       if(z > mountainPeak){
-        fill(255);
+       // fill(20*y,255 , 50*y);
+        fill(map(z, ml, mh, 0, 200), 
+             map(z, ml, mh, 0, 255),
+             255-20*y)
       }
       
       
@@ -108,6 +114,9 @@ function draw() {
   for(let y = 0; y < rows - 1; y++){
     beginShape(TRIANGLE_STRIP);
     for(let x = 0; x < cols; x++){
+      fill(0, 
+             50,
+             255-8*y)
       vertex(x*scl, y*scl, -slider2.value());
       vertex(x*scl, (y+1)*scl, -slider2.value());
     }
@@ -123,7 +132,7 @@ function draw() {
 // util
 function drawFPS(){
   fill(255);
-  text("FPS:" + getFrameRate().toFixed(0), -300, -270);
+  text("FPS:" + getFrameRate().toFixed(0), -300, -250);
 }
 
 //controll camera angle
@@ -147,6 +156,16 @@ function changeView(){
        
 }
 
+//stroke for checkbox
+function doStroke(){
+     if(isStroke){
+        isStroke = false;
+     }else{
+       noStroke();
+       isStroke = true;
+     }
+       
+}
 //create GUI
 function createGUI(){
   
@@ -167,6 +186,11 @@ function createGUI(){
   checkbox = createCheckbox('cambiar vista lateral', false);
   checkbox.changed(changeView);
   checkbox.position(10, 50); 
+  
+    //checkbox stroke
+  checkbox2 = createCheckbox('dibujar líneas', false);
+  checkbox2.changed(doStroke);
+  checkbox2.position(10, 80); 
 }
 
 //controll fly speed
