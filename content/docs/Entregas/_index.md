@@ -1,4 +1,7 @@
 ---
-bookFlatSection: true
+bookCollapseSection: true
 ---
-x
+
+## Integrantes
+
+{{<section>}}
