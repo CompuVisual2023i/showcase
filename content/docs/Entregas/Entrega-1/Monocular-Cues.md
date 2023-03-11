@@ -1,6 +1,6 @@
 # Entrega 1
 
-## App de visualización de terreno
+## App sobre Monocular Cues
 
 ***
 ## Intro
