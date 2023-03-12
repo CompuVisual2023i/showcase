@@ -1,18 +1,21 @@
 # Additive color models
 
 {{< p5-global-iframe id="breath" width="500" height="400" >}}
-   
+
     let formato; 
     let num = 0;
     let button;
     let x,y,z;
     let sliderx, slidery, sliderz;
-    let circulo;
+    let imagen;
    
+     function preload(){
+        imagen =  imagen = createImage(200, 200);
+    }
 
     function setup() {
         button = createButton('Cambiar formato');
-
+      
         sliderx = createSlider(0, 360, 180);
         slidery = createSlider(0, 100, 50);
         sliderz = createSlider(0, 100, 50);
@@ -31,15 +34,8 @@
     {
         background(220);
 
-       let img = createImage(200, 200);
-        img.loadPixels();
-        for (let i = 0; i < img.width; i++) {
-            for (let j = 0; j < img.height; j++) {
-                img.set(i, j, color(0, 90, 102));
-            }
-        }
-        img.updatePixels();
-        image(img, 17, 17);
+        image(imagen, 0, 0);
+        format();
 
         text(formato,350,25);
         text(sliderx.value(),10,300);
@@ -59,7 +55,6 @@
             y='S';
             z='L';
 
-
         }else if (num === 1){
             formato = 'HSB';
             x='H';
@@ -74,5 +69,30 @@
         
     }
 
-    
+    function format()
+    {
+
+        if(formato === 'HSL'){
+        for (let i = 0; i < imagen.width; i++) {
+            for (let j = 0; j < imagen.height; j++) {
+                imagen.set(i, j, color(sliderx.value(), slidery.value(), sliderz.value()));
+            }           
+        }
+        imagen.updatePixels();
+        image(imagen, 0, 0);
+        }else if(formato === 'HSB')
+        { for (let i = 0; i < imagen.width; i++) 
+            {
+                for (let j = 0; j < imagen.height; j++) 
+                {
+                imagen.set(i, j, color(slidery.value(), sliderx.value(), sliderz.value()));
+                }
+            }          
+            imagen.updatePixels();
+            image(imagen, 0, 0);
+        }
+        else if(formato === 'XYZ')
+        {}
+    }
+
 {{< /p5-global-iframe >}}
