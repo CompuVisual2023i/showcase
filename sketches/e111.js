@@ -177,7 +177,7 @@ function draw() {
 // util
 function drawFPS(){
   fill(255);
-  text("FPS:" + getFrameRate().toFixed(0), -300, -250);
+  text("FPS:" + getFrameRate().toFixed(0), -300, -260);
 }
 
 //controll camera angle
