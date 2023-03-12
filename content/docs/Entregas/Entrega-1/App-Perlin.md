@@ -88,5 +88,5 @@ Otra aplicación sencilla de ruido de Perlin es la generación de cuerpos de agu
 
 ## Conclusiones y trabajo futuro.
 
-El ruido de Perlin puede ser usado en una infinidad de formas para dar diferentes efectos visuales sin congestionar la GUP. En la implementación del efecto bloom, sería interesante recorrer el arreglo que contiene el terreno de tal forma que simule una fuente de luz. De tal manera que el efecto sea dinámico y dependa de el origen de la luz. El efecto de agua se puede complementar con iluminación, para un efecto más realista y añadir detección de colisión para permitir que objetos puedan flotar en el agua. 
+El ruido de Perlin puede ser usado en una infinidad de formas para dar diferentes efectos visuales sin congestionar la GPU. En la implementación del efecto bloom, sería interesante recorrer el arreglo que contiene el terreno de tal forma que simule una fuente de luz. De tal manera que el efecto sea dinámico y dependa de el origen de la luz. El efecto de agua se puede complementar con iluminación, para un efecto más realista y añadir detección de colisión para permitir que objetos puedan flotar en el agua. 
 
