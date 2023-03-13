@@ -2,6 +2,6 @@
 bookCollapseSection: true
 ---
 
-## Integrantes
+## Entrega 1
 
 {{<section>}}

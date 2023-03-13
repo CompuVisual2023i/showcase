@@ -3,7 +3,7 @@ headless: true
 ---
 
 - **Contenido**
-- [Integrantes]({{< relref "/docs/Entregas/Integrantes" >}})
-- [Entrega1]({{< relref "/docs/Entregas/entrega-1" >}})
+
+Esta página es para dar evidencias de los trabajos hechos en la clase de computación visual 2023-I
 
 <br />
