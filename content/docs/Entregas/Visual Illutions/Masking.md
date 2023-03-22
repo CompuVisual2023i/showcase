@@ -1,6 +1,16 @@
 # Entrega 1
 
 ## App de procesamiento de imágenes 
+{{< hint info >}} 
+
+`1` seleccione el filtro de color en la esquina izquierda superior.  
+`2` seleccione el tipo de kernel para hacer la convolución.  
+`3` ajuste el brillo de la imagen usando el slider.  
+`4` opcionalmente puede descargar la imagen o cargar una del dispositivo. 
+
+
+{{< /hint >}}
+
 {{< p5-iframe sketch="/showcase/sketches/e13.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.min.js" width="760" height="750" >}}
 ***
 ## Introducción 
