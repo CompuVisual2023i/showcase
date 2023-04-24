@@ -139,3 +139,10 @@ La escala representa el tamaño de esa matriz en pixeles.
         xInicial += sc*4;
     }
 {{< /p5-instance-div >}}
+
+# Introducción
+# Antecedentes y trabajo previo
+# Solución
+# Código
+# Conslusiones
+# Trabajo Futuro
