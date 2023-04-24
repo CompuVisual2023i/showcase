@@ -93,8 +93,7 @@ S_p = \begin{pmatrix} 0 & 1.05118294 & -0.05116099 \\
             0&1&0\\
             0&0&1 \end{pmatrix}
 
-{{< /katex >}}
-
+{{< /katex >}}  
 {{< p5-global-iframe id="breath" width="270" height="175" >}}
     let img;
 
@@ -196,7 +195,7 @@ S_p = \begin{pmatrix} 0 & 1.05118294 & -0.05116099 \\
 
 
 
-{{< /p5-global-iframe >}}
+{{< /p5-global-iframe >}}  
 ### Imagen con Deutaranopia
 Matriz de simulación,
 
@@ -676,7 +675,7 @@ S_c = \begin{pmatrix} 0.95&0.05&0\\
 
 # Código
 
-{{<details "Código">}}
+{{<details "Código RGB a XYZ a LMS">}}
     let img;
 
     function preload(){
@@ -739,6 +738,87 @@ S_c = \begin{pmatrix} 0.95&0.05&0\\
         mc = [
             [0,1.05118294,-0.05116099],
             [0,1,0],
+            [0,0,1]
+        ]
+        for (let i = 0; i < pixels.length; i += 4) {
+            let r = pixels[i];
+            let g = pixels[i + 1];
+            let b = pixels[i + 2];
+            let newR = mc[0][0]*r + mc[0][1]*g + mc[0][2]*b;
+            let newG = mc[1][0]*r + mc[1][1]*g + mc[1][2]*b;
+            let newB = mc[2][0]*r + mc[2][1]*g + mc[2][2]*b;
+            pixels[i] = newR;
+            pixels[i + 1] = newG;
+            pixels[i + 2] = newB;
+        }
+
+        //lms to rgb
+        mc = [
+            [5.47221206,-4.6419601,0.16963708],
+            [-1.1252419,2.29317094,-0.1678952],
+            [0.02980165,-0.19318073,1.16364789]
+        ]
+        for (let i = 0; i < pixels.length; i += 4) {
+            let r = pixels[i];
+            let g = pixels[i + 1];
+            let b = pixels[i + 2];
+            let newR = mc[0][0]*r + mc[0][1]*g + mc[0][2]*b;
+            let newG = mc[1][0]*r + mc[1][1]*g + mc[1][2]*b;
+            let newB = mc[2][0]*r + mc[2][1]*g + mc[2][2]*b;
+            pixels[i] = newR;
+            pixels[i + 1] = newG;
+            pixels[i + 2] = newB;
+        }
+
+        updatePixels();
+    }
+{{</details>}}
+
+{{<details "Código RGB a LMS">}}
+    let img;
+
+    function preload(){
+        img = loadImage('img.svg');
+    }
+
+    function setup() {
+        createCanvas(img.width, img.height);
+        colorMode(RGB, 255); // Establecer el modo de color en RGB
+        background(255); // Fondo blanco
+        image(img, 0, 0); // Dibujar la imagen en el lienzo
+        simDeutaranopia();
+    }
+
+    function draw() {
+        
+    }
+
+    function simDeutaranopia(){
+        loadPixels();
+
+        //convertir rgb a lms       
+        let mc = [
+            [0.31399022,0.63951294,0.04649755],
+            [0.15537241,0.75789446,0.08670142],
+            [0.01775239,0.10944209,0.87256922]
+        ]
+        for (let i = 0; i < pixels.length; i += 4) {
+            let r = pixels[i];
+            let g = pixels[i + 1];
+            let b = pixels[i + 2];
+            let newR = mc[0][0]*r + mc[0][1]*g + mc[0][2]*b;
+            let newG = mc[1][0]*r + mc[1][1]*g + mc[1][2]*b;
+            let newB = mc[2][0]*r + mc[2][1]*g + mc[2][2]*b;
+            pixels[i] = newR;
+            pixels[i + 1] = newG;
+            pixels[i + 2] = newB;
+        }
+
+        //sim
+
+        mc = [
+            [1,0,0],
+            [0.9513092,0,0.04866992],
             [0,0,1]
         ]
         for (let i = 0; i < pixels.length; i += 4) {
