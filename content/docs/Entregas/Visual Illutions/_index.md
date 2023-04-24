@@ -2,6 +2,8 @@
 bookCollapseSection: true
 ---
 
-## Entrega 1
+## Visual Illutions
+
+![picasso](picasso.jpg)
 
 {{<section>}}

@@ -1,6 +1,15 @@
 # Entrega 1
 
 ## App sobre Monocular Cues
+{{< hint info >}} 
+
+-Haga `doble clic` para generar conjunto de planos.
+-`Clic izquierdo` sostenido y `mover el ratón` para cambiar vista.
+
+
+{{< /hint >}}
+
+{{< p5-iframe sketch="/showcase/sketches/e12.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.min.js" width="625" height="625" >}}
 
 ***
 ## Introducción
@@ -33,15 +42,7 @@ En la siguiente aplicación se va a usar el mismo principio. La escena está ent
 }
 ```
 
-{{< hint info >}} 
 
--Haga `doble clic` para generar conjunto de planos.
--`Clic izquierdo` sostenido y `mover el ratón` para cambiar vista.
-
-
-{{< /hint >}}
-
-{{< p5-iframe sketch="/showcase/sketches/e12.js" lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.min.js" width="625" height="625" >}}
 
 
 
