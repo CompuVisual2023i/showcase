@@ -221,6 +221,7 @@ let sliderRes;
 
 const sceneW = 400;
 const sceneH = 400;
+let lastMouseX = 0;
 
 function setup() {
   createCanvas(800, 400);
@@ -256,13 +257,27 @@ function handleKeyInput(){
   }else if(keyIsDown(68)){
     player.rotate(0.05);
     
-  }else if(keyIsDown(87)){
+  }else if(keyIsDown(87) || mouseIsPressed){
     player.move(2, walls);
     
   }else if(keyIsDown(83)){
     player.move(-2, walls);
     
   }
+}
+
+function handleMouseInput(){
+  if(lastMouseX - mouseX > 0){
+     player.rotate(-mouseX/5000);
+  }else{
+    player.rotate(mouseX/5000);
+  }
+ 
+  lastMouseX = mouseX; 
+}
+
+function mouseMoved(){
+  handleMouseInput();
 }
 
 
