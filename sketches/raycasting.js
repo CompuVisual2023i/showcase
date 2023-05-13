@@ -277,7 +277,7 @@ function handleMouseInput(){
 }
 
 function mouseMoved(){
-  handleMouseInput();
+ // handleMouseInput();
 }
 
 
