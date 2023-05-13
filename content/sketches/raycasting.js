@@ -257,7 +257,7 @@ function handleKeyInput(){
   }else if(keyIsDown(68)){
     player.rotate(0.05);
     
-  }else if(keyIsDown(87) || mouseIsPressed){
+  }else if(keyIsDown(87) ){
     player.move(2, walls);
     
   }else if(keyIsDown(83)){
