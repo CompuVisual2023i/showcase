@@ -1,5 +1,5 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content=" Efectos de post-procesado # Hacer Click en la imagen para cambiar el efecto.
-Bloom Invertir colores "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://compuvisual2023i.github.io/showcase/docs/Entregas/Shaders/Post-Effects/"><title>Post Effects | Computación Visual 2023-I</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+Bloom Invertir colores Filtro Anaglifo "><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://compuvisual2023i.github.io/showcase/docs/Entregas/Shaders/Post-Effects/"><title>Post Effects | Computación Visual 2023-I</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
 <script defer src=/showcase/en.search.min.3a8d658c77eb93c7f12a2b8af49a700131e474f288eefb605d9fa61576dbe5a7.js integrity="sha256-Oo1ljHfrk8fxKiuK9JpwATHkdPKI7vtgXZ+mFXbb5ac=" crossorigin=anonymous></script>
 <link rel=alternate type=application/rss+xml href=https://compuvisual2023i.github.io/showcase/docs/Entregas/Shaders/Post-Effects/index.xml title="Computación Visual 2023-I"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Computación Visual 2023-I</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/showcase/docs/Julio/>Julio</a></li><li><a href=/showcase/docs/Jhon/>Jhon</a></li><li><a href=/showcase/docs/Santiago/>Santiago</a></li><li><input type=checkbox id=section-199f820c3863c09a6d11bbcf40d35372 class=toggle checked>
@@ -9,7 +9,7 @@ Bloom Invertir colores "><meta name=theme-color content="#FFFFFF"><meta name=col
 <label for=section-a9beeb45f7767fa9178e1bf3e56f8ecf class="flex justify-between"><a href=/showcase/docs/Entregas/Visual-Illutions/>Visual Illutions</a></label><ul><li><a href=/showcase/docs/Entregas/Visual-Illutions/App-Perlin/>App Perlin</a></li><li><a href=/showcase/docs/Entregas/Visual-Illutions/Color-Blind/>Color Blind</a><ul></ul></li><li><a href=/showcase/docs/Entregas/Visual-Illutions/Masking/>Masking</a></li><li><a href=/showcase/docs/Entregas/Visual-Illutions/Monocular-Cues/>Monocular Cues</a></li><li><a href=/showcase/docs/Entregas/Visual-Illutions/Pixelador/>Pixelador</a><ul></ul></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Post Effects</strong>
 <label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#efectos-de-post-procesado>Efectos de post-procesado</a></li></ul></nav></aside></header><article class=markdown><h1 id=efectos-de-post-procesado>Efectos de post-procesado
-<a class=anchor href=#efectos-de-post-procesado>#</a></h1><p>Hacer Click en la imagen para cambiar el efecto.</p><ol><li>Bloom</li><li>Invertir colores</li></ol><iframe id=breath style=width:535px;height:430px srcdoc='
+<a class=anchor href=#efectos-de-post-procesado>#</a></h1><p>Hacer Click en la imagen para cambiar el efecto.</p><ol><li>Bloom</li><li>Invertir colores</li><li>Filtro Anaglifo</li></ol><iframe id=breath style=width:535px;height:430px srcdoc='
         <!DOCTYPE html>
         <html>
           <head>
@@ -31,8 +31,11 @@ Bloom Invertir colores "><meta name=theme-color content="#FFFFFF"><meta name=col
     let pg_3;
     let shader_3;
 
+    //filtro anglifico
+    let pg_4;
+    let shader_4;
 
-    let s = 0;
+    let s = 3;
 
     let img;
 
@@ -40,6 +43,7 @@ Bloom Invertir colores "><meta name=theme-color content="#FFFFFF"><meta name=col
         shader_1 = loadShader(&#39;shader.vert&#39;,&#39;shader.frag&#39;);
         shader_2 = loadShader(&#39;shader.vert&#39;,&#39;shader.frag&#39;);   
         shader_3 = loadShader(&#39;shader_ic.vert&#39;,&#39;shader_ic.frag&#39;);
+        shader_4 = loadShader(&#39;shader_ang.vert&#39;,&#39;shader_ang.frag&#39;);
         img = loadImage(&#39;ne.jpg&#39;);
     }
 
@@ -48,11 +52,14 @@ Bloom Invertir colores "><meta name=theme-color content="#FFFFFF"><meta name=col
         pg_1 = createGraphics(width, height, WEBGL);
         pg_2 = createGraphics(width, height, WEBGL);
         pg_3 = createGraphics(width, height, WEBGL);
-        noStroke;
-        pg_1.noStroke();
-        pg_2.noStroke();
-        pg_1.image(img,-512/2,-405/2);
-        pg_3.image(img,-512/2,-405/2);
+        pg_4 = createGraphics(width, height, WEBGL);
+        
+
+        pg_1.shader(shader_1);
+        pg_2.shader(shader_2);
+        pg_3.shader(shader_3);
+        pg_4.shader(shader_4);
+        
         
     }
 
@@ -60,15 +67,11 @@ Bloom Invertir colores "><meta name=theme-color content="#FFFFFF"><meta name=col
 
     function draw() {
         if (s==1){
-            pg_1.shader(shader_1);
-
             shader_1.setUniform("tex", img);
             shader_1.setUniform("resolution", [width, height]);
             shader_1.setUniform("direction", [1.5, 0]);
 
             pg_1.rect(0, 0, width, height);
-
-            pg_2.shader(shader_2);
 
             shader_2.setUniform("tex", pg_1);
             shader_2.setUniform("resolution", [width, height]);
@@ -79,9 +82,10 @@ Bloom Invertir colores "><meta name=theme-color content="#FFFFFF"><meta name=col
             image(pg_2, 0, 0);
         }
         else if(s==2){
-            pg_3.shader(shader_3);
+
             shader_3.setUniform("uResolution", [width, height]);
             shader_3.setUniform("uTexture", img);
+            pg_3.texture(img);
             pg_3.beginShape();
             pg_3.vertex(-width / 2, height / 2, 0, 1);
             pg_3.vertex(width / 2, height / 2, 1, 1);
@@ -91,13 +95,27 @@ Bloom Invertir colores "><meta name=theme-color content="#FFFFFF"><meta name=col
             image(pg_3, 0, 0);
 
         } 
+        else if(s==3){
+
+            shader_4.setUniform("uResolution", [width, height]);
+            shader_4.setUniform("uTexture", img);
+            pg_4.texture(img);
+            pg_4.beginShape();
+            pg_4.vertex(-width / 2, height / 2, 0, 1);
+            pg_4.vertex(width / 2, height / 2, 1, 1);
+            pg_4.vertex(width / 2, -height / 2, 1, 0);            
+            pg_4.vertex(-width / 2, -height / 2, 0, 0);            
+            pg_4.endShape(CLOSE);
+            image(pg_4, 0, 0);
+
+        }
         else
            image(img, 0, 0); 
         
     }
 
     function mousePressed(){
-        if(s<2) s++;
+        if(s<3) s++;
         else s=0;
     }
 
@@ -107,5 +125,5 @@ Bloom Invertir colores "><meta name=theme-color content="#FFFFFF"><meta name=col
           <body>
           </body>
         </html>
-      '></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/compuvisual2023i/showcase/commit/5425d0c099f0733be73aaa7ffd94928bfb65e6a4 title='Last modified by sjgomezg | May 9, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
-<span>May 9, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#efectos-de-post-procesado>Efectos de post-procesado</a></li></ul></nav></div></aside></main></body></html>
+      '></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/compuvisual2023i/showcase/commit/2fcb83051567c6bb0a77e5f765b1f183baa70eb5 title='Last modified by sjgomezg | May 15, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>May 15, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#efectos-de-post-procesado>Efectos de post-procesado</a></li></ul></nav></div></aside></main></body></html>
