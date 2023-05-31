@@ -10,6 +10,8 @@ uniform sampler2D uTexture;
 
 uniform sampler2D nTexture;
 
+uniform bool pixelator; 
+
 void main() {
 
     vec2 stepCoord = vec2(gl_FragCoord.x / uResolution.x, 1.0 - gl_FragCoord.y / uResolution.y);
@@ -26,5 +28,5 @@ void main() {
     coord = vec2(((mod(coord.x, factorS)) / (factorS * n)) + (1.0/n)*s,(mod(coord.y, factorS) / factorS));
 
 
-    gl_FragColor = texture2D(nTexture, coord);
+    gl_FragColor = pixelator ? texture2D(uTexture, stepCoord):texture2D(nTexture, coord);
 }
