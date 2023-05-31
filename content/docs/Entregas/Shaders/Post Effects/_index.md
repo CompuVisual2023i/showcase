@@ -20,7 +20,7 @@ Hacer Click en la imagen para cambiar el efecto.
     let pg_4;
     let shader_4;
 
-    let s = 3;
+    let s = 0;
 
     let img;
 
@@ -65,6 +65,8 @@ Hacer Click en la imagen para cambiar el efecto.
             pg_2.rect(0, 0, width, height);
 
             image(pg_2, 0, 0);
+            textSize(32);
+            text(s, 10, 30);
         }
         else if(s==2){
 
@@ -78,6 +80,8 @@ Hacer Click en la imagen para cambiar el efecto.
             pg_3.vertex(-width / 2, -height / 2, 0, 0);            
             pg_3.endShape(CLOSE);
             image(pg_3, 0, 0);
+            textSize(32);
+            text(s, 10, 30);
 
         } 
         else if(s==3){
@@ -92,10 +96,16 @@ Hacer Click en la imagen para cambiar el efecto.
             pg_4.vertex(-width / 2, -height / 2, 0, 0);            
             pg_4.endShape(CLOSE);
             image(pg_4, 0, 0);
+            textSize(32);
+            text(s, 10, 30);
 
         }
-        else
+        else{
            image(img, 0, 0); 
+           textSize(32);
+           fill(255);
+            text('Original', 10, 30);
+        }
         
     }
 
