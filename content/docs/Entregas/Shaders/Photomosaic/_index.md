@@ -1,5 +1,12 @@
 # Photomosaic
 
+# Introducción 
+# Antecedentes y trabajo previo
+# Solución
+# Código
+# Conclusiones
+# Trabajo Futuro
+
 {{< p5-global-iframe id="breath" width="570" height="330" >}}
 
     let img; // imagen de referencia
