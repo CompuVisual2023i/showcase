@@ -5,9 +5,6 @@ uniform sampler2D tex;
 uniform vec2 resolution;
 uniform vec2 direction;
 
-
-
-
 vec3 gaussianBlur( sampler2D t, vec2 texUV, vec2 stepSize ){   
 	vec3 colOut = vec3( 0.0 );                                                                                                                                   
 
@@ -49,8 +46,6 @@ vec3 gaussianBlur( sampler2D t, vec2 texUV, vec2 stepSize ){
 	return colOut;                                                                                                                                                   
 } 
 
-
-
 void main() {
 
   vec2 uv = vTexCoord;
@@ -61,7 +56,6 @@ void main() {
 
   vec3 blur = gaussianBlur(tex, uv, stepSize);
   
-  // Send the color to the screen
   gl_FragColor = vec4(blur, 1.0);
 
 }
