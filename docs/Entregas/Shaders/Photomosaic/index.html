@@ -1,0 +1,356 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Photomosaic # Introducción # El foto mosaico es una técnica de composición de imágenes que consiste en crear una imagen grande a partir de una colección de imágenes más pequeñas, conocidas como teselas. Cada tesela representa una porción de la imagen final y se selecciona de acuerdo a su similitud de color y textura con la región correspondiente en la imagen original.
+La idea detrás del foto mosaico es combinar muchas imágenes más pequeñas para formar una imagen completa y reconocible a distancia."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://compuvisual2023i.github.io/showcase/docs/Entregas/Shaders/Photomosaic/"><title>Photomosaic | Computación Visual 2023-I</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+<script defer src=/showcase/en.search.min.3a8d658c77eb93c7f12a2b8af49a700131e474f288eefb605d9fa61576dbe5a7.js integrity="sha256-Oo1ljHfrk8fxKiuK9JpwATHkdPKI7vtgXZ+mFXbb5ac=" crossorigin=anonymous></script>
+<link rel=alternate type=application/rss+xml href=https://compuvisual2023i.github.io/showcase/docs/Entregas/Shaders/Photomosaic/index.xml title="Computación Visual 2023-I"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Computación Visual 2023-I</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/showcase/docs/Julio/>Julio</a></li><li><a href=/showcase/docs/Jhon/>Jhon</a></li><li><a href=/showcase/docs/Santiago/>Santiago</a></li><li><input type=checkbox id=section-199f820c3863c09a6d11bbcf40d35372 class=toggle checked>
+<label for=section-199f820c3863c09a6d11bbcf40d35372 class="flex justify-between"><a href=/showcase/docs/Entregas/>Entregas</a></label><ul><li><input type=checkbox id=section-2ad2dee4d480516c5de1257cf349c632 class=toggle>
+<label for=section-2ad2dee4d480516c5de1257cf349c632 class="flex justify-between"><a role=button>Rendering</a></label><ul><li><a href=/showcase/docs/Entregas/Rendering/Raycasting/>Raycasting</a></li></ul></li><li><input type=checkbox id=section-c13ebe2f6b2104ad5ffaadc2cf33e7b8 class=toggle checked>
+<label for=section-c13ebe2f6b2104ad5ffaadc2cf33e7b8 class="flex justify-between"><a role=button>Shaders</a></label><ul><li><a href=/showcase/docs/Entregas/Shaders/coloring/>Coloring</a></li><li><a href=/showcase/docs/Entregas/Shaders/Photomosaic/ class=active>Photomosaic</a><ul></ul></li><li><a href=/showcase/docs/Entregas/Shaders/Post-Effects/>Post Effects</a><ul></ul></li><li><a href=/showcase/docs/Entregas/Shaders/Texturing/>Texturing</a><ul></ul></li></ul></li><li><input type=checkbox id=section-1cc6dfbd46c87df6b3270c50e2c0f6a0 class=toggle>
+<label for=section-1cc6dfbd46c87df6b3270c50e2c0f6a0 class="flex justify-between"><a role=button>Transformations</a></label><ul><li><a href=/showcase/docs/Entregas/Transformations/game/>Game</a></li></ul></li><li><input type=checkbox id=section-a9beeb45f7767fa9178e1bf3e56f8ecf class=toggle>
+<label for=section-a9beeb45f7767fa9178e1bf3e56f8ecf class="flex justify-between"><a href=/showcase/docs/Entregas/Visual-Illutions/>Visual Illutions</a></label><ul><li><a href=/showcase/docs/Entregas/Visual-Illutions/App-Perlin/>App Perlin</a></li><li><a href=/showcase/docs/Entregas/Visual-Illutions/Color-Blind/>Color Blind</a><ul></ul></li><li><a href=/showcase/docs/Entregas/Visual-Illutions/Masking/>Masking</a></li><li><a href=/showcase/docs/Entregas/Visual-Illutions/Monocular-Cues/>Monocular Cues</a></li><li><a href=/showcase/docs/Entregas/Visual-Illutions/Pixelador/>Pixelador</a><ul></ul></li></ul></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Photomosaic</strong>
+<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#photomosaic>Photomosaic</a></li><li><a href=#introducción>Introducción</a></li><li><a href=#antecedentes-y-trabajo-previo>Antecedentes y trabajo previo</a></li><li><a href=#solución>Solución</a><ul><li><a href=#resultado>Resultado</a></li></ul></li><li><a href=#código>Código</a></li><li><a href=#conclusiones>Conclusiones</a></li><li><a href=#trabajo-futuro>Trabajo Futuro</a></li></ul></nav></aside></header><article class=markdown><h1 id=photomosaic>Photomosaic
+<a class=anchor href=#photomosaic>#</a></h1><h1 id=introducción>Introducción
+<a class=anchor href=#introducci%c3%b3n>#</a></h1><p>El foto mosaico es una técnica de composición de imágenes que consiste en crear una imagen grande a partir de una colección de imágenes más pequeñas, conocidas como teselas. Cada tesela representa una porción de la imagen final y se selecciona de acuerdo a su similitud de color y textura con la región correspondiente en la imagen original.</p><p>La idea detrás del foto mosaico es combinar muchas imágenes más pequeñas para formar una imagen completa y reconocible a distancia. Este enfoque se basa en el principio de que, a medida que aumenta el número de teselas y se reduce su tamaño, se pueden capturar más detalles y variaciones de color, lo que permite una mejor representación de la imagen original.</p><h1 id=antecedentes-y-trabajo-previo>Antecedentes y trabajo previo
+<a class=anchor href=#antecedentes-y-trabajo-previo>#</a></h1><p>El foto mosaico es una técnica de composición de imágenes que surgió en la década de 1990, popularizada por el artista digital Robert Silvers. Consiste en construir una imagen grande utilizando una colección de imágenes más pequeñas, llamadas teselas. Silvers desarrolló software especializado para automatizar el proceso de selección y colocación de teselas, simplificando el método originalmente manual. La técnica se basa en encontrar teselas que representen de manera similar la región correspondiente en la imagen original, logrando así crear una imagen final reconocible y compuesta por muchas imágenes más pequeñas.</p><p>En la actualidad, el foto mosaico ha ganado popularidad y se ha vuelto más accesible gracias a los avances tecnológicos. Existen aplicaciones y programas que utilizan algoritmos avanzados de análisis de imágenes y comparación de características visuales para generar foto mosaicos de manera eficiente. Esta técnica se utiliza en diversos campos como el arte digital, la publicidad, la decoración y el diseño gráfico. El foto mosaico ofrece una forma creativa de representar imágenes de manera única y atractiva, utilizando una gran cantidad de imágenes más pequeñas para formar una imagen completa y sorprendente. <a href=https://en.wikipedia.org/wiki/Photographic_mosaic>Photographic mosaic</a>.</p><h1 id=solución>Solución
+<a class=anchor href=#soluci%c3%b3n>#</a></h1><p>Utilizando como base los conceptos expuesto en <a href=https://visualcomputing.github.io/docs/shaders/spatial_coherence/>spatial coherence</a> y <a href=https://visualcomputing.github.io/docs/shaders/photomosaic/>photomosaic</a>. Se plantea inicialmente un proceso de pixelacion, esto se logra tomando solo un texel especifico de la textura y utilizarlo para rellenar la tesela.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span>vec2 stepCoord <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec2</span>(gl_FragCoord.x <span style=color:#f92672>/</span> uResolution.x, <span style=color:#ae81ff>1.0</span> <span style=color:#f92672>-</span> gl_FragCoord.y <span style=color:#f92672>/</span> uResolution.y);
+</span></span><span style=display:flex><span>stepCoord <span style=color:#f92672>*=</span> resolution;
+</span></span><span style=display:flex><span>stepCoord <span style=color:#f92672>=</span> <span style=color:#a6e22e>floor</span>(stepCoord);
+</span></span><span style=display:flex><span>stepCoord <span style=color:#f92672>/=</span> resolution;
+</span></span></code></pre></div><p>Donde <strong><code>stepCoord</code></strong> son las coordenadas normalizadas de la textura, y se utiliza <strong><code>gl_FragCoord</code></strong> para obtener las coordenadas en pantalla, posteriormente se escalan de según el valor de <strong><code>resolution</code></strong>, el cual nos indica el tamaño de la tesela y se utiliza la función piso <strong><code>floor(stepCoord)</code></strong> con la que se garantiza que siempre se tomara el mismo texel para esa tesela.</p><p>Para poder pasar las imágenes al shader generamos un buffer en p5 con <strong><code>pg_1 = createGraphics(width * n, height, WEBGL)</code></strong>, el cual le pasaremos al shader como una textura, donde están todas las imágenes en secuencia una seguida de la otra.</p><p>Las imágenes fueron procesadas con anticipación, para que todas tuvieran la misma resolución. Esto también se puede lograr directamente con funciones de p5.</p><iframe id=breath style=width:570px;height:330px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+
+
+ let img; // imagen de referencia
+    let pg_1; // buffer para las imágenes
+    let paintings = []; // array con las imágenes 
+    let paintings2 = []; // array con la imágenes y su valor de luma 
+    let n = 10; // cantidad de imágenes
+    let img2; // imagen auxiliar para el calculo del luma
+    let num = []; // array con los valores del luma
+    
+
+    function preload(){
+
+        for(let i =1;i<=n;i++) paintings.push(loadImage(`im${i}.jpg`));
+             
+
+    }
+
+    function setup(){
+        
+        
+
+        // calculo del luma
+        for (let i = 0; i<paintings.length;i++){
+            img2 = paintings[i];
+            img2.loadPixels();
+            let avgLum = 0;
+            for (let j = 0;j<img2.pixels.length;j+=4){
+                let lum = 0;
+                //let c = color(img2.pixels[j],img2.pixels[j+1],img2.pixels[j+2]);
+                let r = img2.pixels[j];
+                let g = img2.pixels[j+1];
+                let b = img2.pixels[j+2];
+                lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+                //lum = brightness(c);
+                avgLum += lum;
+            }
+            avgLum /= (540*304);
+            paintings2.push([avgLum, img2]);
+            num.push(avgLum);
+            console.log(avgLum);
+        }
+        num = sort(num); // arreglo con los valores del luma ordenados 
+        
+
+        createCanvas(540,304, WEBGL);
+
+        // creación del espacio para la textura y  carga de imágenes según su luma
+        pg_1 = createGraphics(width * n, height, WEBGL);
+        for (let i = 0; i < n; i++){
+            for (let j = 0; j < n ; j++)
+                //condición para pintar según el valor del luma
+                if(num[i]==paintings2[j][0])
+                    pg_1.image(paintings2[j][1],(-pg_1.width/2) + (pg_1.width/n) *i,-pg_1.height/2);
+        }
+
+        
+        textureMode(NORMAL);
+        noStroke();        
+    }
+
+    function draw(){
+
+        beginShape();
+        texture(pg_1);
+        vertex(-width / 2, height / 2, 0, 1);
+        vertex(width / 2, height / 2, 1, 1);
+        vertex(width / 2, -height / 2, 1, 0);            
+        vertex(-width / 2, -height / 2, 0, 0);            
+        endShape(CLOSE); 
+    }
+
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Ahora debemos lograr seleccionar el segmento de la textura que contiene todas las imágenes para que cubra la tesela indicada.
+Para eso hallamos un factor de escalamiento el cual se obtiene de dividir 1 entre <strong><code>resolution</code></strong>, hallamos la luminancia del texel, y aplicamos la funcion piso <strong><code>floor(n*l)</code></strong>, donde n es la cantidad de imágenes y l la luminancia, con eso logramos ubicar la coordenada de inicio del segmento de la textura.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span>vec2 coord <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec2</span>(gl_FragCoord.x <span style=color:#f92672>/</span> uResolution.x, <span style=color:#ae81ff>1.0</span> <span style=color:#f92672>-</span> gl_FragCoord.y <span style=color:#f92672>/</span> uResolution.y);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>float</span> factorS <span style=color:#f92672>=</span> <span style=color:#ae81ff>1.0</span> <span style=color:#f92672>/</span> resolution;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>float</span> l <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.2126</span> <span style=color:#f92672>*</span> pTexture.r <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.7152</span> <span style=color:#f92672>*</span> pTexture.g <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.0722</span> <span style=color:#f92672>*</span> pTexture.b;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>float</span> s <span style=color:#f92672>=</span> <span style=color:#a6e22e>floor</span>(n<span style=color:#f92672>*</span>l);
+</span></span></code></pre></div><p>Para logra aplicar el segmento de la textura a la tesela, utilizamos la expresión:</p><p>para la coordenada x,</p><center><link rel=stylesheet href=/showcase/katex/katex.min.css><script defer src=/showcase/katex/katex.min.js></script>
+<script defer src=/showcase/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span class=text-center>
+\(\cfrac{coordenadaX \bmod factorS}{factorS*n} + \cfrac{1}{n} * s\)</span></center><p>La expresión a la derecha de la suma, mapea las coordenadas de la textura a la tesela, y la expresión de la izquierda indica el texel de inicio de la textura.</p><p>y para la coordenada y,</p><center><span class=text-center>\(\cfrac{coordenadaY \bmod factorS}{factorS*n} + \cfrac{1}{n} * s\)</span></center><p>esto es por que estamos pasando la textura con la imágenes de forma horizontal.</p><p>Finalmente, pasamos la textura con las n imagenes y el mapeo de las coordenadas al <strong><code>gl_FragColor</code></strong>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span>coord <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec2</span>(((<span style=color:#a6e22e>mod</span>(coord.x, factorS)) <span style=color:#f92672>/</span> (factorS <span style=color:#f92672>*</span> n)) <span style=color:#f92672>+</span> (<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span>n)<span style=color:#f92672>*</span>s,(<span style=color:#a6e22e>mod</span>(coord.y, factorS) <span style=color:#f92672>/</span> factorS));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>gl_FragColor <span style=color:#f92672>=</span> <span style=color:#a6e22e>texture2D</span>(nTexture, coord);
+</span></span></code></pre></div><h2 id=resultado>Resultado
+<a class=anchor href=#resultado>#</a></h2><iframe id=breath style=width:570px;height:330px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+
+    let img; // imagen de referencia
+    let pg_1; // buffer para las imágenes
+    let shader_ms;  // shader
+    let resolution; // divisiones para la pixelacion 
+    let paintings = []; // array con las imágenes 
+    let paintings2 = []; // array con la imágenes y su valor de luma 
+    let n = 10; // cantidad de imágenes
+    let img2; // imagen auxiliar para el calculo del luma
+    let num = []; // array con los valores del luma
+    let pixelator;
+    let uv;
+    let rPaint;
+    
+
+    function preload(){
+
+        for(let i =1;i<=n;i++) paintings.push(loadImage(`im${i}.jpg`));
+        img = random(paintings); // selección de la imagen
+        shader_ms = loadShader('shader.vert','shader.frag');
+
+    }
+
+    function setup(){
+        
+        
+
+        // calculo del luma
+        for (let i = 0; i<paintings.length;i++){
+            img2 = paintings[i];
+            img2.loadPixels();
+            let avgLum = 0;
+            for (let j = 0;j<img2.pixels.length;j+=4){
+                let lum = 0;
+                //let c = color(img2.pixels[j],img2.pixels[j+1],img2.pixels[j+2]);
+                let r = img2.pixels[j];
+                let g = img2.pixels[j+1];
+                let b = img2.pixels[j+2];
+                lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+                //lum = brightness(c);
+                avgLum += lum;
+            }
+            avgLum /= (540*304);
+            paintings2.push([avgLum, img2]);
+            num.push(avgLum);
+            console.log(avgLum);
+        }
+        num = sort(num); // arreglo con los valores del luma ordenados 
+        
+
+        createCanvas(540,304, WEBGL);
+
+        // creación del espacio para la textura y  carga de imágenes según su luma
+        pg_1 = createGraphics(width * n, height, WEBGL);
+        for (let i = 0; i < n; i++){
+            for (let j = 0; j < n ; j++)
+                //condición para pintar según el valor del luma
+                if(num[i]==paintings2[j][0])
+                    pg_1.image(paintings2[j][1],(-pg_1.width/2) + (pg_1.width/n) *i,-pg_1.height/2);
+        }
+
+        
+        textureMode(NORMAL);
+        noStroke();
+
+        resolution = createSlider(1,100,30,1);
+        resolution.position(10,30);
+        resolution.input(() => shader_ms.setUniform('resolution', resolution.value()));
+        
+        pixelator = createCheckbox('pixelator',false);
+        pixelator.position(130,10);
+        pixelator.changed(()=> shader_ms.setUniform('pixelator',pixelator.checked()));
+
+        rPaint = createButton('Cambiar imagen');
+        rPaint.position(10,10);
+        rPaint.mousePressed(()=> shader_ms.setUniform('uTexture',random(paintings)));
+
+        shader(shader_ms);
+        shader_ms.setUniform('n',n);
+        shader_ms.setUniform('uResolution',[width, height]);
+        shader_ms.setUniform('uTexture',img);
+        shader_ms.setUniform('nTexture',pg_1);
+        shader_ms.setUniform('resolution',resolution.value());
+
+           
+        
+        
+    }
+
+    function draw(){
+
+        beginShape();
+        vertex(-width / 2, height / 2, 0, 1);
+        vertex(width / 2, height / 2, 1, 1);
+        vertex(width / 2, -height / 2, 1, 0);            
+        vertex(-width / 2, -height / 2, 0, 0);            
+        endShape(CLOSE); 
+    }
+
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h1 id=código>Código
+<a class=anchor href=#c%c3%b3digo>#</a></h1><p><details><summary>Código main</summary><div class=markdown-inner><pre><code>let img; // imagen de referencia
+let pg_1; // buffer para las imágenes
+let shader_ms;  // shader
+let resolution; // divisiones para la pixelacion 
+let paintings = []; // array con las imágenes 
+let paintings2 = []; // array con la imágenes y su valor de luma 
+let n = 10; // cantidad de imágenes
+let img2; // imagen auxiliar para el calculo del luma
+let num = []; // array con los valores del luma
+let pixelator;
+let uv;
+let rPaint;
+
+
+function preload(){
+
+    for(let i =1;i&lt;=n;i++) paintings.push(loadImage(`im${i}.jpg`));
+    img = random(paintings); // selección de la imagen
+    shader_ms = loadShader('shader.vert','shader.frag');
+
+}
+
+function setup(){
+    
+    
+
+    // calculo del luma
+    for (let i = 0; i&lt;paintings.length;i++){
+        img2 = paintings[i];
+        img2.loadPixels();
+        let avgLum = 0;
+        for (let j = 0;j&lt;img2.pixels.length;j+=4){
+            let lum = 0;
+            //let c = color(img2.pixels[j],img2.pixels[j+1],img2.pixels[j+2]);
+            let r = img2.pixels[j];
+            let g = img2.pixels[j+1];
+            let b = img2.pixels[j+2];
+            lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+            //lum = brightness(c);
+            avgLum += lum;
+        }
+        avgLum /= (540*304);
+        paintings2.push([avgLum, img2]);
+        num.push(avgLum);
+        console.log(avgLum);
+    }
+    num = sort(num); // arreglo con los valores del luma ordenados 
+    
+
+    createCanvas(540,304, WEBGL);
+
+    // creación del espacio para la textura y  carga de imágenes según su luma
+    pg_1 = createGraphics(width * n, height, WEBGL);
+    for (let i = 0; i &lt; n; i++){
+        for (let j = 0; j &lt; n ; j++)
+            //condición para pintar según el valor del luma
+            if(num[i]==paintings2[j][0])
+                pg_1.image(paintings2[j][1],(-pg_1.width/2) + (pg_1.width/n) *i,-pg_1.height/2);
+    }
+
+    
+    textureMode(NORMAL);
+    noStroke();
+
+    resolution = createSlider(1,100,30,1);
+    resolution.position(10,30);
+    resolution.input(() =&gt; shader_ms.setUniform('resolution', resolution.value()));
+    
+    pixelator = createCheckbox('pixelator',false);
+    pixelator.position(130,10);
+    pixelator.changed(()=&gt; shader_ms.setUniform('pixelator',pixelator.checked()));
+
+    rPaint = createButton('Cambiar imagen');
+    rPaint.position(10,10);
+    rPaint.mousePressed(()=&gt; shader_ms.setUniform('uTexture',random(paintings)));
+
+    shader(shader_ms);
+    shader_ms.setUniform('n',n);
+    shader_ms.setUniform('uResolution',[width, height]);
+    shader_ms.setUniform('uTexture',img);
+    shader_ms.setUniform('nTexture',pg_1);
+    shader_ms.setUniform('resolution',resolution.value());
+
+       
+    
+    
+}
+
+function draw(){
+
+    beginShape();
+    vertex(-width / 2, height / 2, 0, 1);
+    vertex(width / 2, height / 2, 1, 1);
+    vertex(width / 2, -height / 2, 1, 0);            
+    vertex(-width / 2, -height / 2, 0, 0);            
+    endShape(CLOSE); 
+}
+</code></pre></div></details><details><summary>shader.frag</summary><div class=markdown-inner><p>precision mediump float;</p><p>uniform vec2 uResolution;</p><p>uniform float resolution;</p><p>uniform float n;</p><p>uniform sampler2D uTexture;</p><p>uniform sampler2D nTexture;</p><p>uniform bool pixelator;</p><p>void main() {</p><pre><code>vec2 stepCoord = vec2(gl_FragCoord.x / uResolution.x, 1.0 - gl_FragCoord.y / uResolution.y);
+stepCoord *= resolution;
+stepCoord = floor(stepCoord);
+stepCoord /= resolution;
+
+vec4 pTexture = texture2D(uTexture,stepCoord);
+
+vec2 coord = vec2(gl_FragCoord.x / uResolution.x, 1.0 - gl_FragCoord.y / uResolution.y);
+float factorS = 1.0 / resolution;
+float l = 0.2126 * pTexture.r + 0.7152 * pTexture.g + 0.0722 * pTexture.b;
+float s = floor(n*l);
+coord = vec2(((mod(coord.x, factorS)) / (factorS * n)) + (1.0/n)*s,(mod(coord.y, factorS) / factorS));
+
+
+gl_FragColor = pixelator ? texture2D(uTexture, stepCoord):texture2D(nTexture, coord);
+</code></pre><p>}</p></div></details></p><h1 id=conclusiones>Conclusiones
+<a class=anchor href=#conclusiones>#</a></h1><p>El programa nos ofrece una herramienta muy util utilizando los shaders, con el fin de simplificar la programación para el procesamiento de cada pixel, reduciendo la cantidad de lineas de código necesarias y el tiempo de procesamiento.</p><h1 id=trabajo-futuro>Trabajo Futuro
+<a class=anchor href=#trabajo-futuro>#</a></h1><p>Utilizando como base este proceso de foto mosaico, se podría ampliar su uso para videos o utilizar un conjunto de videos para reemplazar cada tesela, pero para esto seria util pre procesar el video para mantener su promedio de luma en un rango estables y asi poder mantener su posición en la tesela y evitar que esta varié con cada fotograma.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/compuvisual2023i/showcase/commit/2e2a7fe7198e912bee6c32777d383c67a4b6ce5d title='Last modified by sjgomezg | June 20, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>June 20, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#photomosaic>Photomosaic</a></li><li><a href=#introducción>Introducción</a></li><li><a href=#antecedentes-y-trabajo-previo>Antecedentes y trabajo previo</a></li><li><a href=#solución>Solución</a><ul><li><a href=#resultado>Resultado</a></li></ul></li><li><a href=#código>Código</a></li><li><a href=#conclusiones>Conclusiones</a></li><li><a href=#trabajo-futuro>Trabajo Futuro</a></li></ul></nav></div></aside></main></body></html>
