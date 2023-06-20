@@ -5,7 +5,7 @@
 
 `1` seleccione los colores para combinar.   
 `2` seleccione un método para combinar los colores en la parte inferior.  
- Este app está basado en [Visual computing - coloring](https://visualcomputing.github.io/docs/shaders/coloring/) 
+ 
 
 
 {{< /hint >}}
@@ -15,14 +15,8 @@
 ***
 ## Introducción 
 
+En el presente ejercicio se pretende encontrar el código javascript. Es un ejercicio que sirve
+para ver la implementación de shaders en p5. [Código completo](https://editor.p5js.org/jjmontoyag/sketches/Z50PLu6wO) 
 
-
-## Código y resultados
-
-
-
-
-
-
-## Conclusiones y trabajo futuro.
+Este app está basado en [Visual computing - coloring](https://visualcomputing.github.io/docs/shaders/coloring/) 
 
