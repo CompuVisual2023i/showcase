@@ -2,7 +2,8 @@
 
 {{< hint info >}} 
 
-Presione `ENTER` para pausar. 
+Presione `ENTER` para pausar.
+El juego puede tardar un momento para cargar recursos.
 
 {{< /hint >}}
 
